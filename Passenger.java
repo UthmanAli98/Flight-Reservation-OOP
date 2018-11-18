@@ -1,76 +1,57 @@
 
-public class Passenger {
+public class Passenger{
 
 	private String firstName;
 	private String lastName;
-	private String classType;
 	private String seatPref;
-	private double cost;
+	//private FlightClass fclass;
+
+	private String classType;
 	
-	Passenger(){
-		setFirstName("");
-		setLastName("");
-		setClassType("");
-		setSeatPref("");
-		cost = 0.0;
+	public Passenger(String f, String l, String s) {
+		setFirstName(f);
+		setLastName(l);
+		setSeatPref(s);
 		
 	}
-
-
-	public String getFirstName() {
-		return firstName;
+	public Passenger() {
+		this.firstName = "";
+		this.lastName = "";
 	}
-
-
+	
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-
-
-	public String getLastName() {
-		return lastName;
-	}
-
-
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setFlightClass(String classType) {
+		
+			this.classType = classType;
+		
+	}
 
-
-	public String getClassType() {
+	
+	public String getFlightClass() {
 		return classType;
 	}
-
-
-	public void setClassType(String classType) {
-		this.classType = classType;
+	@Override
+	public String toString() {
+		
+		return firstName+" "+lastName +" "+ classType+" "+seatPref;
 	}
-
 
 	public String getSeatPref() {
 		return seatPref;
 	}
 
-
 	public void setSeatPref(String seatPref) {
 		this.seatPref = seatPref;
 	}
-
-
-	public double getCost() {
-		return cost;
-	}
-
-
-	public void setCost(String classType) {
-		if(classType.equals("Economy")){
-			this.cost = 300;
-		}else if(classType.equals("Business")) {
-			this.cost = 450;
-		}else if(classType.equals("First")) {
-			this.cost = 900;
-		}
-	}
-	
-	
 }
