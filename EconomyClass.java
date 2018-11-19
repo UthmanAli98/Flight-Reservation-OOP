@@ -7,14 +7,17 @@ public class EconomyClass extends FlightClass{
 	public EconomyClass(Passenger p ,Flight f) {
 
 		super(p,f);
-		cost = 300;
+		this.cost = 300;
 		
+	}
+	public int getCost() {
+		return cost;
 	}
 	public String reserveUnitedTicket() {
 		
 		String ticket = super.reserveUnitedTicket();
 		String x = System.lineSeparator();
-		ticket+= "Cost: $"+cost;
+		ticket+= "Cost: $"+getCost()+x;
 		return ticket;
 	}
 	

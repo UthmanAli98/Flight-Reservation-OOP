@@ -1,5 +1,5 @@
 
-public class BusinessClass extends FlightClass{
+public class BusinessClass extends EconomyClass{
 
 	private int cost;
 	private String amenities;
@@ -7,7 +7,8 @@ public class BusinessClass extends FlightClass{
 	
 	public BusinessClass(Passenger p, Flight f) {
 		super(p,f);
-		cost = 450;
+		this.cost = 450;
+		snack = "";
 	}
 	public void  setSnack(String snackChoice) {
 		if(snackChoice.equalsIgnoreCase("peanuts")) {
@@ -30,8 +31,8 @@ public class BusinessClass extends FlightClass{
 	public String printTicket() {
 		String ticket = super.reserveUnitedTicket();
 		String x = System.lineSeparator();
-		ticket+= "Cost: $"+ cost+x;
-		ticket+="Snack: "+snack+x;
+		//ticket+= "Cost: $"+ getCost() +x;
+		ticket+="Snack: "+x;
 		
 		return ticket;
 	}

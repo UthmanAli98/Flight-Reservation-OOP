@@ -29,8 +29,7 @@ public class FirstClass extends BusinessClass {
 	public String reserveUnitedTicket() {
 		String ticket = super.printTicket();
 		String x = System.lineSeparator();
-		ticket+= "Cost: $"+ cost+x;
-		ticket+="Snack: "+super.getSnack()+x;
+		//ticket+="Snack: "+super.getSnack()+x;
 		ticket+="Wants a free taxi: "+isFreeTaxi()+x;
 		
 		return ticket;

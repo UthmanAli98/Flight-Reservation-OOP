@@ -11,8 +11,8 @@ public class Main {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		/*Passenger passenger = new Passenger();
+		/*
+		Passenger passenger = new Passenger();
 		
 		passenger.setFirstName("Uthman");
 		passenger.setLastName("Alibalogun");
@@ -33,6 +33,8 @@ public class Main {
 		System.out.print(testFlight.isFullFlight());
 		EconomyClass ec = new EconomyClass(passenger,testFlight);
 		BusinessClass bc = new BusinessClass(passenger, testFlight);
+		bc.setSnack("peanuts");
+		
 		FirstClass fc = new FirstClass(passenger,testFlight);
 		fc.setSnack("cookies");
 		fc.setFreeTaxi(true);
@@ -41,7 +43,8 @@ public class Main {
 		fclass.setPassenger(passenger);
 		fclass.setFlight(testFlight);
 		
-		System.out.println(fc.reserveUnitedTicket());
+		System.out.println(bc.reserveUnitedTicket());
+		
 		*/
 		
 		Scanner scan = new Scanner(System.in);
@@ -73,7 +76,7 @@ public class Main {
 		System.out.println("What would you like your destination to be?");
 		String destination = scan.nextLine().trim();
 		Flight userFlight = new Flight();
-		
+		userFlight.setSeats(20);
 		if(destination.equals("Greensboro")) {
 		userFlight.setLocTo(destination);
 		userFlight.setLocFrom("Newark");
@@ -89,15 +92,40 @@ public class Main {
 		
 		if(fc.equals("First")) {
 			FirstClass firstc = new FirstClass(user,userFlight);
+			
+			System.out.println("Would you like cookies or peanuts?");
+			String snack = scan.nextLine().trim();
+			firstc.setSnack(snack);
+			
+			System.out.print("Would you like to use our free taxi service? Yes or No");
+			String ftaxi = scan.nextLine().trim();
+			
+			if(ftaxi.equals("Yes")) {
+				firstc.setFreeTaxi(true);
+			}else if (ftaxi.equals("No")) {
+				firstc.setFreeTaxi(false);
+			}
+			
 			System.out.println(firstc.reserveUnitedTicket());
 			
 			
 		}else if(fc.equals("Economy")) {
 			EconomyClass ec = new EconomyClass(user,userFlight);
 			System.out.println(ec.reserveUnitedTicket());
+			
 		}else if(fc.equals("Business")) {
 			BusinessClass bc = new BusinessClass(user, userFlight);
+			
+			bc.setCost(450);
+			System.out.println("Would you like cookies or peanuts?");
+			String snack = scan.nextLine().trim();
+			bc.setSnack(snack);
+			
 			System.out.println(bc.reserveUnitedTicket());
+			System.out.println(snack);
+
+			
+			
 		}
 		
 		
