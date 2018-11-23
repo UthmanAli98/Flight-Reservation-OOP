@@ -31,7 +31,7 @@ public class Flight {
 	public void setLocTo(String destination) {
 		this.locTo = destination;
 		
-		if(destination.equalsIgnoreCase("Greensboro")) {
+		if(destination.trim().equalsIgnoreCase("Greensboro")) {
 			this.flightNum = "320";
 			this.setDepartT("1:59 PM");
 			this.setArrivalT("3:29PM");

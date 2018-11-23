@@ -11,7 +11,7 @@ public class FirstClass extends BusinessClass {
 	}
 	
 	public void setTaxi(String wantsTaxi) {
-		if(wantsTaxi.equalsIgnoreCase("YES")) {
+		if(wantsTaxi.trim().equalsIgnoreCase("YES")) {
 			
 		}
 	}

@@ -70,17 +70,16 @@ public class Main {
 		user.setFlightClass(fc);
 		
 		
-		System.out.println(user.toString());
 		
 		System.out.println("We offer two flights: Service from Newark to Greensboro & Service from Greensboro to Newark");
 		System.out.println("What would you like your destination to be?");
 		String destination = scan.nextLine().trim();
 		Flight userFlight = new Flight();
 		userFlight.setSeats(20);
-		if(destination.equals("Greensboro")) {
+		if(destination.equalsIgnoreCase("Greensboro")) {
 		userFlight.setLocTo(destination);
 		userFlight.setLocFrom("Newark");
-		}else if(destination.equals("Newark")) {
+		}else if(destination.equalsIgnoreCase("Newark")) {
 			userFlight.setLocTo(destination);
 			userFlight.setLocFrom("Greensboro");
 		}
@@ -90,40 +89,60 @@ public class Main {
 		
 		userFlight.addPassenger(user);
 		
-		if(fc.equals("First")) {
+		if(fc.equalsIgnoreCase("First")) {
 			FirstClass firstc = new FirstClass(user,userFlight);
 			
 			System.out.println("Would you like cookies or peanuts?");
 			String snack = scan.nextLine().trim();
-			firstc.setSnack(snack);
+			
+			if(snack.equalsIgnoreCase("peanuts")) {
+
+				firstc.setSnack("peanuts");
+					
+			}else if(snack.equalsIgnoreCase("cookies")) {
+				firstc.setSnack("cookies");
+			}
+			
+			
 			
 			System.out.print("Would you like to use our free taxi service? Yes or No");
 			String ftaxi = scan.nextLine().trim();
 			
-			if(ftaxi.equals("Yes")) {
+			if(ftaxi.equalsIgnoreCase("Yes")) {
 				firstc.setFreeTaxi(true);
 			}else if (ftaxi.equals("No")) {
 				firstc.setFreeTaxi(false);
 			}
 			
-			System.out.println(firstc.reserveUnitedTicket());
+		
+			
+			String x = System.lineSeparator();
+			String ticket = firstc.reserveUnitedTicket();
+			ticket+="Snack: "+ snack+x;
+			
+			System.out.println(ticket);
 			
 			
-		}else if(fc.equals("Economy")) {
+		}else if(fc.equalsIgnoreCase("Economy")) {
 			EconomyClass ec = new EconomyClass(user,userFlight);
 			System.out.println(ec.reserveUnitedTicket());
 			
-		}else if(fc.equals("Business")) {
+		}else if(fc.equalsIgnoreCase("Business")) {
 			BusinessClass bc = new BusinessClass(user, userFlight);
 			
 			bc.setCost(450);
 			System.out.println("Would you like cookies or peanuts?");
 			String snack = scan.nextLine().trim();
 			bc.setSnack(snack);
+		
 			
-			System.out.println(bc.reserveUnitedTicket());
-			System.out.println(snack);
+			String ticket = bc.reserveUnitedTicket();
+			String x = System.lineSeparator();
+			
+			
+			ticket += "Snack: " + snack+x;
 
+			System.out.println(ticket);
 			
 			
 		}

@@ -32,7 +32,7 @@ public class BusinessClass extends EconomyClass{
 		String ticket = super.reserveUnitedTicket();
 		String x = System.lineSeparator();
 		//ticket+= "Cost: $"+ getCost() +x;
-		ticket+="Snack: "+x;
+		//ticket+= "Snack: "+x;
 		
 		return ticket;
 	}
